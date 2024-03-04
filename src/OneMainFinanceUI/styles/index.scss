@@ -1,0 +1,110 @@
+@import 'fonts';
+@import 'loading';
+
+.omf {
+   input[type="text"] {
+      outline: none;
+      width: 100%;
+      margin-bottom: 4px;
+   }
+
+   input[type="radio"] {
+      margin-right: 10px;
+   }
+
+   .omf-inner {
+      border: 1px solid #d0d5d8;
+   }
+
+   .omf-field {
+      padding: 8px 0px 0px 0px;
+      border-bottom: 1px solid #d0d5d8;
+
+      p {
+         margin: 0;
+      }
+
+      &:last-child {
+         border-bottom: none;
+         ;
+      }
+
+      .error {
+         padding: 0 8px 0 8px;
+         color: #ce0c24;
+         background-color: #fae6e9;
+         border-top: 1px solid #d0d5d8;
+      }
+
+      .error-text {
+         color: #d12f3e;
+         font-weight: bold;
+      }
+
+      .field-inner {
+         padding: 0 8px 0 8px;
+      }
+
+      &.verify-info {
+         padding: 0;
+         border-bottom: none;
+
+         div {
+            border-color: #d0d5d8;
+         }
+      }
+   }
+
+   .omf-cardtype {
+      border-color: #d0d5d8;
+      background-color: #f4f7fc;
+      padding: 18px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+
+      .help-image {
+         margin-top: 14px;
+         position: relative;
+         background-repeat: no-repeat;
+         background-position: 50% 50%;
+         background-size: contain;
+         width: 100%;
+         height: 120px;
+
+         &.cvv {
+            background-image: url('../images/cvv.png');
+            height: 130px;
+         }
+
+         &.check {
+            background-image: url('../images/check.png');
+            height: 153px;
+         }
+      }
+   }
+}
+
+button.payment-btn {
+   border: 1px solid;
+   padding: 20px 50px;
+   background-color: #00a39e;
+   text-transform: uppercase;
+   color: #ffffff;
+   font-weight: bold;
+   &:disabled {
+      opacity: 0.4;
+   }
+   &:focus {
+      outline-color: #d0d5d8;
+   }
+}
+
+.omf-submitting {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.980);
+}

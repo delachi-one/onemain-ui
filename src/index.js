@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import OneMainFinanceUI from './OneMainFinanceUI';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <OneMainFinanceUI />
   </React.StrictMode>,
   document.getElementById('root')
 );
