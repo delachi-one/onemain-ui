@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { ACCOUNT_OPTIONS, DEFAULT_VALUES } from "./accountOptions";
+import luhn from "luhn-js";
+
 
 export function useOMF() {
    const [accountType, setAccountType] = useState("checking");
@@ -72,7 +74,13 @@ export function useOMF() {
 
    const validatBankAccountNumberLength = (value) => {
       const { bankAccountNumber } = getValues();
-      return bankAccountNumber.length === 12 || "Bank Account Number Must Be 12 digits";
+      return bankAccountNumber.length === 9 || "Bank Account Number Must Be 9 digits";
+   }
+
+   const isCardNumberValid = () => {
+      const { cardNumber } = getValues();
+      if(cardNumber.length < 2) return;
+      return luhn.isValid(cardNumber) || "Card Number Must Be Valid";
    }
 
    useEffect(() => reset(),[accountType,reset])
@@ -96,6 +104,7 @@ export function useOMF() {
       errors,
       isValid,
       isDirty,
-      submission
+      submission,
+      isCardNumberValid
    };
 }

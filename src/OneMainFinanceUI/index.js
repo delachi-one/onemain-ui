@@ -26,7 +26,8 @@ export default function OneMainFinanceUI() {
       handleSubmit,
       errors,
       submission,
-      isDirty
+      isDirty,
+      isCardNumberValid
    } = useOMF();
 
    return (
@@ -37,6 +38,7 @@ export default function OneMainFinanceUI() {
                <>
                   <p className="font-semibold mb-2">[ Golden Butler :: Senior UI Engineer ]</p>
                   <h1 className="mb-0 text-[32px] roboto-bold">{ACCOUNT_OPTIONS.formTitle}</h1>
+                  <p className="font-semibold mb-2 text-xl">$4,500</p>
                   <p>{ACCOUNT_OPTIONS.formInstructions}</p>
                </>
             )
@@ -91,7 +93,7 @@ export default function OneMainFinanceUI() {
                               fieldKey={"bankAccountNumber"}
                               register={register}
                               required={true}
-                              maxLength={12}
+                              maxLength={9}
                               validateMatch={validatBankAccountNumberLength}
                            />
                         </div>
@@ -104,7 +106,7 @@ export default function OneMainFinanceUI() {
                               fieldKey={"bankAccountNumberConfirm"}
                               register={register}
                               required={true}
-                              maxLength={12}
+                              maxLength={9}
                               validateMatch={validateMatchingBankAccountNumbers}
                            />
                         </div>
@@ -120,7 +122,7 @@ export default function OneMainFinanceUI() {
                         register={register}
                         required={true}
                         maxLength={16}
-                        validateMatch={validatCardNumberLength}
+                        validateMatch={isCardNumberValid}
                      />
                   </div>
                   <div className="omf-field p-2 border-b-[1px]">
